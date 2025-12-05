@@ -8,7 +8,7 @@ mongoose.connect(process.env.CONNECTIONSTRING)
     console.log('Conectado à base de dados.');
     app.emit('pronto');
   })
-  .catch(e => console.log('ERRO DE CONEXÃO:', e)); // Adicionei um texto para destacar o erro
+  .catch(e => console.log('ERRO DE CONEXÃO:', e)); 
 
 // Importação de Sessões e Flash Messages
 const session = require('express-session');
@@ -26,38 +26,29 @@ const csrf = require('csurf');
 // Importação dos seus Middlewares (que você ainda vai criar/ajustar)
 const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middlewares.js');
 
-// Configuração do Helmet permitindo scripts externos (Bootstrap, etc)
-app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"], // Permite arquivos do próprio servidor
-      scriptSrc: [
-        "'self'", 
-        "https://cdn.jsdelivr.net", // Bootstrap 5 e Popper.js
-        "https://code.jquery.com",  // jQuery (se usar)
-        "https://cdnjs.cloudflare.com" // Outras libs comuns
-      ],
-      styleSrc: [
-        "'self'", 
-        "'unsafe-inline'", // Necessário para alguns estilos inline do Bootstrap
-        "https://cdn.jsdelivr.net", 
-        "https://fonts.googleapis.com", // Google Fonts
-        "https://cdnjs.cloudflare.com"
-      ],
-      imgSrc: [
-        "'self'", 
-        "data:", // Permite imagens em base64
-        "https:" // Permite imagens de qualquer site HTTPS (útil para avatares)
-      ],
-      fontSrc: [
-        "'self'", 
-        "https://fonts.gstatic.com", // Fontes do Google carregadas no CSS
-        "https://cdnjs.cloudflare.com",
-        "https://cdn.jsdelivr.net"
-      ],
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        // Mantém as configurações padrão de segurança
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        
+        // Permite scripts do site e do CDN (Bootstrap)
+        "script-src": ["'self'", "https://cdn.jsdelivr.net"],
+        
+        // Permite estilos (CSS) do site e do CDN
+        "style-src": ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
+        
+        // Permite conexões (como os ficheiros .map) ao CDN
+        "connect-src": ["'self'", "https://cdn.jsdelivr.net"],
+        
+        // Opcional: Permite imagens do CDN, caso o Bootstrap precise
+        "img-src": ["'self'", "data:", "https://cdn.jsdelivr.net"] 
+      },
     },
-  },
-}));
+  })
+);
+
 
 // Tratamento de dados de formulário (body-parser)
 app.use(express.urlencoded({ extended: true }));
@@ -89,9 +80,9 @@ app.set('view engine', 'ejs');
 app.use(csrf());
 
 // Nossos Middlewares Próprios
-app.use(middlewareGlobal); // Variáveis globais (ex: usuário logado, mensagens de erro)
-app.use(checkCsrfError);   // Checa se o token de segurança é válido
-app.use(csrfMiddleware);   // Envia o token para todas as páginas
+app.use(middlewareGlobal); 
+app.use(checkCsrfError);  
+app.use(csrfMiddleware);   
 
 // Rotas da aplicação
 app.use(routes);
