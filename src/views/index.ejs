@@ -1,0 +1,162 @@
+<%- include('includes/head') %>
+    <%- include('includes/navbar') %>
+        <div class="container-fluid d-none d-md-block mb-4" style="width: 95%;">
+            <div id="carouselExampleCaptions" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+
+                <div class="carousel-inner rounded-5 overflow-hidden">
+
+                    <div class="carousel-item active">
+                        <img src="/assets/img/recepcao.png" class="d-block w-100" alt="recepcao">
+                        <div class="carousel-caption d-none d-md-block"
+                            style="background-color: rgba(0,0,0,0.2); border-radius: 20px;">
+                            <h5>Bem-vindos à Comeia Girassol</h5>
+                            <p>Segurança, acolhimento e uma equipe preparada para receber sua família com todo carinho.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="/assets/img/parque.png" class="d-block w-100" alt="parque">
+                        <div class="carousel-caption d-none d-md-block"
+                            style="background-color: rgba(0,0,0,0.2); border-radius: 20px;">
+                            <h5>Espaço de Descobertas</h5>
+                            <p>Um ambiente amplo e seguro ao ar livre, onde brincar é a melhor forma de aprender e
+                                socializar.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="/assets/img/bersario.png" class="d-block w-100" alt="bersario">
+                        <div class="carousel-caption d-none d-md-block"
+                            style="background-color: rgba(0,0,0,0.2); border-radius: 20px;">
+                            <h5>Desenvolvimento e Cuidado</h5>
+                            <p>Monitoramento constante e estímulos sensoriais adequados para os primeiros passos do seu
+                                bebê</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- seção fachada-->
+        <section class="container-fluid py-4" style="background-color: #e3f2fd;">
+            <div class="container">
+                <div class="row align-items-center">
+
+                    <div class="col-md-6 mb-4 mb-md-0">
+
+                        <h2 class="display-5 fw-bold text-dark">Muito mais que uma escola, um segundo lar.</h2>
+
+                        <p class="lead text-secondary mt-3">
+                            Seja bem-vindo à <strong>Comeia Girassol</strong>. Aqui, acreditamos que a educação começa
+                            com afeto.
+                        </p>
+
+                        <p class="text-secondary">
+                            Nossa estrutura foi cuidadosamente planejada para oferecer segurança, conforto e liberdade
+                            para o seu filho brincar e aprender. Nossa equipe pedagógica atua com um olhar atento e
+                            carinhoso, respeitando o tempo e a individualidade de cada criança.
+                        </p>
+
+                        <a href="#historia" class="btn btn-outline-primary btn-lg rounded-pill mt-3 px-4">
+                            Conheça nossa História
+                        </a>
+                    </div>
+
+                    <div class="col-md-6">
+                        <img src="/assets/img/escola.png"
+                            class="img-fluid rounded-5 shadow-lg border border-4 border-white"
+                            alt="Fachada da Escola Comeia Girassol">
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+        <!-- fim seçõa fachada-->
+
+        <!-- seção das turmas-->
+        <section class="container my-5 pt-4">
+            <div class="text-center mb-5">
+                <h6 class="text-primary fw-bold text-uppercase ls-2">Fases do Desenvolvimento</h6>
+                <h2 class="display-6 fw-bold text-dark">Nossas Turmas</h2>
+                <p class="text-secondary">Atividades pedagógicas desenvolvidas com carinho para cada idade.</p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 hover-effect">
+                        <div class="mb-3 text-warning">
+                            <i class="bi bi-balloon-heart-fill" style="font-size: 3rem;"></i>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title fw-bold">Berçário</h4>
+                            <h6 class="text-muted mb-3">(4 meses a 1 ano)</h6>
+                            <p class="card-text text-secondary mt-3">
+                                Cuidado integral, estímulos sensoriais, solário e muito afeto para os primeiros passos
+                                do bebê.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 hover-effect">
+                        <div class="mb-3 text-primary">
+                            <i class="bi bi-puzzle-fill" style="font-size: 3rem;"></i>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title fw-bold">Maternal</h4>
+                            <h6 class="text-muted mb-3">(2 a 3 anos)</h6>
+                            <p class="card-text text-secondary mt-3">
+                                Foco na socialização, desenvolvimento da fala, coordenação motora e descoberta do mundo
+                                através do brincar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 hover-effect">
+                        <div class="mb-3 text-success">
+                            <i class="bi bi-pencil-fill" style="font-size: 3rem;"></i>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title fw-bold">Pré-Escola</h4>
+                            <h6 class="text-muted mb-3">(4 a 5 anos)</h6>
+                            <p class="card-text text-secondary mt-3">
+                                Preparação lúdica para o ensino fundamental, com iniciação à alfabetização, números e
+                                raciocínio lógico.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- fim de seção-->
+
+        <%- include('includes/historia') %>
+            <%- include('includes/pilares') %>
+                <%- include('includes/footer') %>
