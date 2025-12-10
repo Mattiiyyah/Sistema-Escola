@@ -3,7 +3,7 @@ const validator = require('validator');
 const bcryptjs = require('bcryptjs');
 
 const LoginSchema = new moongose.Schema({
-    nome: {type: String, require: true},
+    nome: {type: String, required: true},
     email: {type: String, required: true},
     password: {type: String, required: true}
 });
@@ -37,9 +37,9 @@ class Login {
     async register() {
 
         //validacao para nome
-        if(!this.body.nome) this.errors.push('Adicione seu nome');
+        if(!this.body.nome || this.body.nome.trim().length === 0) this.errors.push('Adicione seu nome');
 
-        if(typeof this.body.nome !== 'string') this.errors.push('Nome só pode conter caracter');  
+        if(!/^[A-Za-zÀ-ÿ\s]+$/.test(this.body.nome)) this.errors.push('Nome só pode conter caracter');  
 
         this.valida();
 
