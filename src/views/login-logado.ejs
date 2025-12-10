@@ -1,0 +1,37 @@
+<%- include('includes/head') %>
+<%- include('includes/navbar') %>
+
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center" style="background-color: #f8f9fa;">
+    <div class="container">
+        
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8 text-center">
+                <img src="/assets/img/icone.png" width="80" class="mb-3">
+                <h1 class="fw-bold text-dark">Olá, Administrador! (<%= admin.nome %>)</h1>
+                <p class="lead text-secondary">Bem-vindo ao sistema de gestão da Comeia Girassol.</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            
+            <div class="col-md-5 col-lg-4">
+                <div class="card border-0 shadow-lg rounded-5 hover-effect h-100">
+                    <div class="card-body p-5 text-center">
+                        <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex p-4 mb-4">
+                            <i class="bi bi-backpack-fill display-4"></i>
+                        </div>
+                        <h3 class="fw-bold">Alunos & Matrículas</h3>
+                        <p class="text-muted mb-4">Cadastrar, editar e gerenciar pagamentos de matrículas.</p>
+                        
+                        <a href="/alunos/index" class="btn btn-primary btn-lg rounded-pill w-100 fw-bold">
+                            Acessar Módulo <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+    </div>
+</div>
+
+<%- include('includes/footer') %>
