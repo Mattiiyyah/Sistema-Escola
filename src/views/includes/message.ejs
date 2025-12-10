@@ -1,0 +1,40 @@
+<% if (errors.length > 0) { %>
+    <div class="row my-3">
+        <div class="col-lg-10 mx-auto"> <div class="alert alert-danger alert-dismissible fade show border-0 shadow-sm rounded-4 d-flex align-items-center" role="alert">
+                <i class="bi bi-exclamation-triangle-fill fs-3 me-3 opacity-75"></i>
+                
+                <div class="flex-grow-1">
+                    <h6 class="fw-bold mb-1">Ops! Algo deu errado:</h6>
+                    <ul class="mb-0 ps-3 small">
+                        <% errors.forEach(erro => { %>
+                            <li><%= erro %></li>
+                        <% }); %>
+                    </ul>
+                </div>
+                
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+<% } %>
+
+<% if (success.length > 0) { %>
+    <div class="row my-3">
+        <div class="col-lg-10 mx-auto">
+            <div class="alert alert-success alert-dismissible fade show border-0 shadow-sm rounded-4 d-flex align-items-center" role="alert">
+                <i class="bi bi-check-circle-fill fs-3 me-3 opacity-75"></i>
+                
+                <div class="flex-grow-1">
+                    <h6 class="fw-bold mb-1">Sucesso!</h6>
+                    <div class="small">
+                        <% success.forEach(msg => { %>
+                            <span class="d-block"><%= msg %></span>
+                        <% }); %>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+<% } %>
