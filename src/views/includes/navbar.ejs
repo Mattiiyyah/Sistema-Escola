@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg shadow border border-primary-subtle">
     <div class="container-fluid">
 
-        <a class="navbar-brand d-flex align-items-center" href="#">
+        <a class="navbar-brand d-flex align-items-center" href="/">
             <img src="/assets/img/logo.png" alt="logo" width="74" class="d-inline-block align-text-top">
             <h5 class="fs-2 m-0 ms-3 text-light d-none d-md-block">Comeia Girassol</h5>
         </a>
@@ -24,12 +24,16 @@
 
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-4">
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Cadastro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Sair</a>
-                    </li>
+
+                   <% if(admin) { %>  
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/login/logout">Sair</a>
+                        </li>
+                    <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/login/index">Entrar</a>
+                        </li>
+                    <% } %>
                 </ul>
             </div>
         </div>
