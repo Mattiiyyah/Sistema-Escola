@@ -39,7 +39,7 @@ class Login {
         //validacao para nome
         if(!this.body.nome || this.body.nome.trim().length === 0) this.errors.push('Adicione seu nome');
 
-        if(!/^[A-Za-zÀ-ÿ\s]+$/.test(this.body.nome)) this.errors.push('Nome só pode conter caracter');  
+        if(!/^[A-Za-zÀ-ÿ\s]+$/.test(this.body.nome)) this.errors.push('Nome só pode conter letras');  
 
         this.valida();
 
