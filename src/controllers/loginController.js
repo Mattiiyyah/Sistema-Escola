@@ -57,6 +57,10 @@ exports.login = async (req, res) => {
    }
 };
 
+exports.exist = (req, res) => {
+   res.render('logout');
+};
+
 exports.logout = function(req, res) {
    req.session.destroy();
    res.redirect('/');
