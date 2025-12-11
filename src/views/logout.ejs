@@ -1,0 +1,44 @@
+<%- include('includes/head') %>
+<%- include('includes/navbar') %>
+
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center py-5" style="background-color: #e3f2fd;">
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                
+                <div class="card border-0 shadow-lg rounded-5 overflow-hidden text-center p-5">
+                    
+                    <div class="mb-4">
+                        <div class="bg-warning bg-opacity-10 text-warning rounded-circle d-inline-flex p-4">
+                            <i class="bi bi-door-open-fill display-1"></i>
+                        </div>
+                    </div>
+
+                    <h2 class="fw-bold text-dark mb-3">Já vai embora?</h2>
+                    
+                    <p class="lead text-secondary mb-4">
+                        Você está prestes a encerrar sua sessão segura na <strong>Comeia Girassol</strong>. 
+                        <br>Tem certeza que deseja sair?
+                    </p>
+
+                    <div class="d-grid gap-3">
+                        
+                        <a href="/login/logout" class="btn btn-outline-danger btn-lg rounded-pill fw-bold border-2">
+                            <i class="bi bi-box-arrow-right me-2"></i>Sim, quero sair
+                        </a>
+
+                        <a href="/login/index" class="btn btn-primary btn-lg rounded-pill fw-bold shadow-sm">
+                            <i class="bi bi-arrow-return-left me-2"></i>Não, voltar ao trabalho
+                        </a>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('includes/footer') %>
