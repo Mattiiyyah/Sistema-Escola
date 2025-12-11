@@ -1,0 +1,140 @@
+<%- include('includes/head') %>
+    <%- include('includes/navbar') %>
+        <%- include('includes/message') %>
+
+            <div class="container py-5">
+
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4">
+                    <div>
+                        <h2 class="fw-bold text-dark mb-1">
+                            <i class="bi bi-people-fill text-primary me-2"></i>Gerenciar Alunos
+                        </h2>
+                        <p class="text-secondary m-0">Visualize os alunos, responsáveis e status financeiro.</p>
+                    </div>
+
+                    <a href="/alunos/register" class="btn btn-success rounded-pill px-4 fw-bold shadow-sm mt-3 mt-md-0">
+                        <i class="bi bi-plus-lg me-2"></i>Nova Matrícula
+                    </a>
+                </div>
+
+                <div class="card border-0 shadow rounded-4 overflow-hidden">
+
+                    <% if (alunos.length> 0) { %>
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="bg-light">
+                                    <tr>
+                                        <th class="ps-4 py-3 text-secondary text-uppercase small">Aluno</th>
+                                        <th class="py-3 text-secondary text-uppercase small">Responsável</th>
+                                        <th class="py-3 text-secondary text-uppercase small">Contatos</th>
+                                        <th class="py-3 text-secondary text-uppercase small">Mensalidade</th>
+                                        <th class="py-3 text-secondary text-uppercase small text-center">Status</th>
+                                        <th class="pe-4 py-3 text-end text-secondary text-uppercase small">Ações</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <% alunos.forEach(aluno=> { %>
+                                        <tr>
+                                            <td class="ps-4">
+                                                <div class="d-flex align-items-center">
+                                                    
+                                                    <%
+                                                        const cores = ['bg-primary', 'bg-success', 'bg-danger', 'bg-info', 'bg-warning'];
+                                                        let somaLetras = 0;
+                                                        
+                                                        if (aluno.nome) {
+                                                            for (let i = 0; i < aluno.nome.length; i++) {
+                                                                somaLetras += aluno.nome.charCodeAt(i);
+                                                            }
+                                                        }
+
+                                                        let indiceCor = somaLetras % cores.length;
+                                                        let corEscolhida = cores[indiceCor];
+
+                                                        let corTexto = (corEscolhida === 'bg-warning') ? 'text-dark' : 'text-white';
+
+                                                    %>
+
+                                                    <div class="<%= corEscolhida %> <%= corTexto %> rounded-circle d-flex align-items-center justify-content-center me-3 fw-bold shadow-sm"
+                                                        style="width: 40px; height: 40px; min-width: 40px;">
+                                                        <%= aluno.nome ? aluno.nome[0].toUpperCase() : '?' %>
+                                                    </div>
+                                                    <div>
+                                                        <span class="fw-bold text-dark">
+                                                            <%= aluno.nome %>
+                                                        </span>
+                                                        <div class="small text-muted">
+                                                            <%= aluno.turma %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <span class="fw-bold text-secondary">
+                                                    <%= aluno.nomeResponsavel %>
+                                                </span>
+                                            </td>
+
+                                            <td>
+                                                <div class="d-flex flex-column">
+                                                    <small class="text-secondary mb-1">
+                                                        <i class="bi bi-envelope me-1"></i>
+                                                        <%= aluno.emailResponsavel %>
+                                                    </small>
+                                                    <small class="text-secondary">
+                                                        <i class="bi bi-telephone me-1"></i>
+                                                        <%= aluno.telefoneResponsavel %>
+                                                    </small>
+                                                </div>
+                                            </td>
+
+                                            <td class="fw-bold text-dark">
+                                                R$ <%= parseFloat(aluno.valor).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %>
+                                            </td>
+
+                                            <td class="text-center">
+                                                <% if(aluno.pago === true) { %>
+                                                    <span
+                                                        class="badge bg-success-subtle text-success-emphasis border border-success-subtle rounded-pill px-3 py-2">
+                                                        <i class="bi bi-check-circle-fill me-1"></i> Pago
+                                                    </span>
+                                                <% } else { %>
+                                                        <span
+                                                            class="badge bg-danger-subtle text-danger-emphasis border border-danger-subtle rounded-pill px-3 py-2">
+                                                            <i class="bi bi-clock-fill me-1"></i> Pendente
+                                                        </span>
+                                                <% } %>
+                                            </td>
+
+                                            <td class="pe-4 text-end">
+                                                <a href="/alunos/register/<%= aluno._id %>"
+                                                    class="btn btn-sm btn-outline-primary rounded-pill me-1"><i
+                                                        class="bi bi-pencil-fill"></i></a>
+                                                <a href="/alunos/delete/<%= aluno._id %>"
+                                                    class="btn btn-sm btn-outline-danger rounded-pill"><i
+                                                        class="bi bi-trash-fill"></i></a>
+                                            </td>
+                                        </tr>
+                                        <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                        <% } else { %>
+                            <div class="p-5 text-center">
+                                <i class="bi bi-inbox text-muted display-4 mb-3 d-block"></i>
+                                <p class="text-muted lead mb-0">Não existem alunos matriculados.</p>
+                            </div>
+                            <% } %>
+
+                </div>
+
+                <div class="mt-4">
+                    <a href="/login/index" class="text-decoration-none text-muted small">
+                        <i class="bi bi-arrow-left me-1"></i> Voltar ao Menu Principal
+                    </a>
+                </div>
+
+            </div>
+            <%- include('includes/footer') %>
