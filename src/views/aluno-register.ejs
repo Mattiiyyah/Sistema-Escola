@@ -1,0 +1,158 @@
+<%- include('includes/head') %>
+    <%- include('includes/navbar') %>
+
+        <%- include('includes/message') %>
+
+            <div class="container py-2">
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+
+                        <div class="text-center mb-4">
+
+                            <div class="bg-success bg-opacity-10 text-success rounded-circle d-inline-flex p-3 mb-3">
+                                <i class="bi bi-person-plus-fill fs-2"></i>
+                            </div>
+                            <h2 class="fw-bold text-dark">Nova Matrícula</h2>
+                            <p class="text-secondary">Preencha os dados abaixo para cadastrar um novo aluno no sistema.
+                            </p>
+                        </div>
+
+                        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                            <div class="card-body p-5">
+                                <% if(aluno._id) {%>
+                                    <form action="/alunos/edit/<%= aluno._id%>" method="POST">
+                                        <% } else { %>
+                                            <form action="/alunos/register/confirm" method="POST">
+                                                <% } %>
+
+                                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                                                    <h5 class="fw-bold text-primary mb-3">
+                                                        <i class="bi bi-backpack-fill me-2"></i>Dados do Aluno
+                                                    </h5>
+
+                                                    <div class="row g-3 mb-4">
+                                                        <div class="col-md-8">
+                                                            <div class="form-floating">
+                                                                <input type="text" class="form-control rounded-4"
+                                                                    id="nomeAluno" name="nome" value="<%= aluno.nome %>"
+                                                                    placeholder="Nome da Criança" required>
+                                                                <label for="nomeAluno">Nome Completo do Aluno</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+
+
+                                                            <div class="form-floating">
+                                                                <select class="form-select rounded-4" id="turma"
+                                                                    name="turma" required>
+                                                                    <option value="" selected disabled>Selecione...
+                                                                    </option>
+                                                                    <option value="Berçário" <%=(locals.aluno &&
+                                                                        aluno.turma==='Berçário' ) ? 'selected' : '' %>
+                                                                        >Berçário</option>
+
+                                                                    <option value="Maternal" <%=(locals.aluno &&
+                                                                        aluno.turma==='Maternal' ) ? 'selected' : '' %>
+                                                                        >Maternal</option>
+
+                                                                    <option value="Pré-Escola" <%=(locals.aluno &&
+                                                                        aluno.turma==='Pré-Escola' ) ? 'selected' : ''
+                                                                        %>>Pré-Escola</option>
+                                                                </select>
+                                                                <label for="turma">Turma</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <hr class="border-secondary opacity-10 my-4">
+
+                                                    <h5 class="fw-bold text-primary mb-3">
+                                                        <i class="bi bi-people-fill me-2"></i>Responsável Financeiro
+                                                    </h5>
+
+                                                    <div class="form-floating mb-3">
+                                                        <input type="text" class="form-control rounded-4"
+                                                            id="nomeResponsavel" name="nomeResponsavel" value="<%= aluno.nomeResponsavel %>"
+                                                            placeholder="Nome do Pai/Mãe" required>
+                                                        <label for="nomeResponsavel">Nome do Responsável</label>
+                                                    </div>
+
+                                                    <div class="row g-3 mb-4">
+                                                        <div class="col-md-6">
+                                                            <div class="form-floating">
+                                                                <input type="email" class="form-control rounded-4"
+                                                                    id="emailResponsavel" name="emailResponsavel" value="<%= aluno.emailResponsavel %>"
+                                                                    placeholder="email@exemplo.com" required>
+                                                                <label for="emailResponsavel">E-mail de Contato</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-floating">
+                                                                <input type="tel" class="form-control rounded-4"
+                                                                    id="telefoneResponsavel" 
+                                                                    name="telefoneResponsavel" value="<%= aluno.telefoneResponsavel %>"
+                                                                    placeholder="(11) 99999-9999" required>
+                                                                <label for="telefoneResponsavel">Telefone /
+                                                                    WhatsApp</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <hr class="border-secondary opacity-10 my-4">
+
+                                                    <h5 class="fw-bold text-primary mb-3">
+                                                        <i class="bi bi-cash-coin me-2"></i>Informações de Pagamento
+                                                    </h5>
+
+                                                    <div class="row g-3 mb-4">
+                                                        <div class="col-md-6">
+                                                            <div class="form-floating">
+                                                                <input type="number" step="0.01"
+                                                                    class="form-control rounded-4" id="valor"
+                                                                    name="valor" value="<%= aluno.valor %>"  placeholder="550.00" required>
+                                                                <label for="valor">Valor da Mensalidade (R$)</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-floating">
+                                                                <select class="form-select rounded-4" id="pago"
+                                                                    name="pago" required>
+                                                                    <option value="false" <%=(locals.aluno &&
+                                                                        aluno.pago===false) ? 'selected' : '' %>
+                                                                        >Pendente (Ainda não pagou)</option>
+
+                                                                    <option value="true" <%=(locals.aluno &&
+                                                                        aluno.pago===true) ? 'selected' : '' %>>Pago
+                                                                        (Matrícula confirmada)</option>
+                                                                </select>
+                                                                <label for="pago">Status Inicial</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="d-grid gap-2">
+                                                        <button type="submit"
+                                                            class="btn btn-success btn-lg rounded-pill fw-bold shadow-sm">
+                                                            <i class="bi bi-check-lg me-2"></i>Realizar Matrícula
+                                                        </button>
+                                                        <a href="/alunos/index"
+                                                            class="btn btn-outline-secondary rounded-pill fw-bold border-0">
+                                                            Cancelar e Voltar
+                                                        </a>
+                                                    </div>
+                                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="/alunos/index" class="text-decoration-none text-muted small">
+                        <i class="bi bi-arrow-left me-1"></i> Voltar para a página anterior
+                    </a>
+                </div>
+
+            </div>
+            <%- include('includes/footer') %>
