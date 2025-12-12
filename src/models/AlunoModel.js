@@ -93,6 +93,12 @@ class Aluno {
         return alunos; 
     }
 
+    static async buscaporStatus(status) {
+        const alunos = await AlunoModel.find({pago: status})
+            .sort({criadoEm: -1})
+        return alunos;
+    }
+
     static async delete(id) {
         if(typeof id !== 'string') return;
         const aluno = await AlunoModel.findOneAndDelete({_id: id});
