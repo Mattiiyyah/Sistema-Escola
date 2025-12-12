@@ -13,7 +13,7 @@ exports.register = async (req, res) => {
       if(login.errors.length > 0) {
          req.flash('errors', login.errors);
          req.session.save(function() {
-            return res.redirect('/login/index');
+            return res.redirect('/login/index#register');
          });
 
          return;
