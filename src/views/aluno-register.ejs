@@ -37,7 +37,7 @@
                                                             <div class="form-floating">
                                                                 <input type="text" class="form-control rounded-4"
                                                                     id="nomeAluno" name="nome" value="<%= aluno.nome %>"
-                                                                    placeholder="Nome da Criança" required>
+                                                                    placeholder="Nome da Criança">
                                                                 <label for="nomeAluno">Nome Completo do Aluno</label>
                                                             </div>
                                                         </div>
@@ -46,7 +46,7 @@
 
                                                             <div class="form-floating">
                                                                 <select class="form-select rounded-4" id="turma"
-                                                                    name="turma" required>
+                                                                    name="turma">
                                                                     <option value="" selected disabled>Selecione...
                                                                     </option>
                                                                     <option value="Berçário" <%=(locals.aluno &&
@@ -74,8 +74,9 @@
 
                                                     <div class="form-floating mb-3">
                                                         <input type="text" class="form-control rounded-4"
-                                                            id="nomeResponsavel" name="nomeResponsavel" value="<%= aluno.nomeResponsavel %>"
-                                                            placeholder="Nome do Pai/Mãe" required>
+                                                            id="nomeResponsavel" name="nomeResponsavel"
+                                                            value="<%= aluno.nomeResponsavel %>"
+                                                            placeholder="Nome do Pai/Mãe">
                                                         <label for="nomeResponsavel">Nome do Responsável</label>
                                                     </div>
 
@@ -83,17 +84,18 @@
                                                         <div class="col-md-6">
                                                             <div class="form-floating">
                                                                 <input type="email" class="form-control rounded-4"
-                                                                    id="emailResponsavel" name="emailResponsavel" value="<%= aluno.emailResponsavel %>"
-                                                                    placeholder="email@exemplo.com" required>
+                                                                    id="emailResponsavel" name="emailResponsavel"
+                                                                    value="<%= aluno.emailResponsavel %>"
+                                                                    placeholder="email@exemplo.com">
                                                                 <label for="emailResponsavel">E-mail de Contato</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-floating">
                                                                 <input type="tel" class="form-control rounded-4"
-                                                                    id="telefoneResponsavel" 
-                                                                    name="telefoneResponsavel" value="<%= aluno.telefoneResponsavel %>"
-                                                                    placeholder="(11) 99999-9999" required>
+                                                                    id="telefoneResponsavel" name="telefoneResponsavel"
+                                                                    value="<%= aluno.telefoneResponsavel %>"
+                                                                    placeholder="(11) 99999-9999">
                                                                 <label for="telefoneResponsavel">Telefone /
                                                                     WhatsApp</label>
                                                             </div>
@@ -111,14 +113,15 @@
                                                             <div class="form-floating">
                                                                 <input type="number" step="0.01"
                                                                     class="form-control rounded-4" id="valor"
-                                                                    name="valor" value="<%= aluno.valor %>"  placeholder="550.00" required>
+                                                                    name="valor" value="<%= aluno.valor %>"
+                                                                    placeholder="550.00">
                                                                 <label for="valor">Valor da Mensalidade (R$)</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-floating">
                                                                 <select class="form-select rounded-4" id="pago"
-                                                                    name="pago" required>
+                                                                    name="pago">
                                                                     <option value="false" <%=(locals.aluno &&
                                                                         aluno.pago===false) ? 'selected' : '' %>
                                                                         >Pendente (Ainda não pagou)</option>
