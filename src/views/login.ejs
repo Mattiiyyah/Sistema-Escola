@@ -59,21 +59,29 @@
                                                     <i class="bi bi-lock-fill me-1"></i> Ambiente Seguro
                                                 </div>
 
-                                                <form action="/login/login" method="POST">
+                                                <form class="form-login" action="/login/login" method="POST">
                                                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
                                                     <div class="form-floating mb-3">
                                                         <input type="email" class="form-control rounded-4"
-                                                            id="loginEmail" name="email" placeholder="nome@exemplo.com" required>
+                                                            id="loginEmail" name="email" placeholder="nome@exemplo.com">
                                                         <label for="loginEmail">E-mail Corporativo</label>
+                                                        <div class="invalid-feedback"></div>
                                                     </div>
-                                                    <div class="form-floating mb-3">
-                                                        <input type="password" class="form-control rounded-4"
-                                                            id="loginPassword" name="password" placeholder="Senha" required>
-                                                        <label for="loginPassword">Senha de Acesso</label>
-                                                        <a href="/login/redefinir"
-                                                        class="small text-muted text-decoration-none">Esqueceu sua
-                                                        senha?</a>
+                                                    <div class="mb-3">
+                                                        <div class="input-group">
+                                                            <div class="form-floating">
+                                                                <input type="password" class="form-control"
+                                                                    id="loginPassword" name="password"
+                                                                    placeholder="Senha">
+                                                                <label for="loginPassword">Senha de Acesso</label>
+                                                            </div>
+                                                            <span class="input-group-text bg-white"
+                                                                style="cursor: pointer;">
+                                                                <i class="bi bi-eye fs-4" id="toggleLoginPassword"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="invalid-feedback"></div>
                                                     </div>
 
                                                     <button type="submit"
@@ -91,38 +99,61 @@
                                                     gestor
                                                 </div>
 
-                                                <form action="/login/register" method="POST">
+                                                <form class="form-cadastro" action="/login/register" method="POST">
                                                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
                                                     <div class="form-floating mb-3">
                                                         <input type="text" class="form-control rounded-4"
-                                                            id="registerName" name="nome" placeholder="Seu Nome" required>
+                                                            id="registerName" name="nome" placeholder="Seu Nome">
                                                         <label for="registerName">Nome do Responsável</label>
+
+                                                        <div class="invalid-feedback"></div>
                                                     </div>
 
                                                     <div class="form-floating mb-3">
                                                         <input type="email" class="form-control rounded-4"
                                                             id="registerEmail" name="email"
-                                                            placeholder="nome@exemplo.com" required>
+                                                            placeholder="nome@exemplo.com">
                                                         <label for="registerEmail">E-mail Corporativo</label>
+                                                        <div class="invalid-feedback"></div>
                                                     </div>
 
 
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <div class="form-floating mb-4">
-                                                                <input type="password" class="form-control rounded-4"
-                                                                    id="registerPassword" name="password"
-                                                                    placeholder="Senha" required>
-                                                                <label for="registerPassword">Senha</label>
+                                                            <div class="mb-4">
+                                                                <div class="input-group">
+                                                                    <div class="form-floating">
+                                                                        <input type="password" class="form-control"
+                                                                            id="registerPassword" name="password"
+                                                                            placeholder="Senha">
+                                                                        <label for="registerPassword">Senha</label>
+                                                                    </div>
+                                                                    <span class="input-group-text bg-white"
+                                                                        style="cursor: pointer;">
+                                                                        <i class="bi bi-eye fs-4"
+                                                                            id="toggleRegisterPassword"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="invalid-feedback"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <div class="form-floating mb-4">
-                                                                <input type="password" class="form-control rounded-4"
-                                                                    id="confirmpassword" name="confirmpassword"
-                                                                    placeholder="Confirmar" required>
-                                                                <label for="confirmPassword">Confirmar</label>
+                                                            <div class="mb-4">
+                                                                <div class="input-group">
+                                                                    <div class="form-floating">
+                                                                        <input type="password" class="form-control"
+                                                                            id="confirmpassword" name="confirmpassword"
+                                                                            placeholder="Confirmar">
+                                                                        <label for="confirmPassword">Confirmar</label>
+                                                                    </div>
+                                                                    <span class="input-group-text bg-white"
+                                                                        style="cursor: pointer;">
+                                                                        <i class="bi bi-eye fs-4"
+                                                                            id="toggleConfirmPassword"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="invalid-feedback"></div>
                                                             </div>
                                                         </div>
                                                     </div>
