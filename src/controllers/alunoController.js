@@ -2,7 +2,10 @@ const Aluno = require('../models/AlunoModel');
 
 exports.index =  async(req, res) => {
     const alunos = await Aluno.buscaAlunos();
-    res.render('alunos', { alunos });
+    res.render('alunos', { 
+        alunos,
+        tituloPagina: ''
+    });
 };
 
 exports.register = (req, res) => {
@@ -79,4 +82,20 @@ exports.delete = async function(req, res) {
         res.redirect('/alunos/index');
     });
     return;
+};
+
+exports.indexPago = async (req, res) => {
+    const alunos = await Aluno.buscaporStatus(true);
+    res.render('alunos', { 
+        alunos,
+        tituloPagina: '(Pagos)' 
+    });
+};
+
+exports.indexPendente = async (req, res) => {
+    const alunos = await Aluno.buscaporStatus(false);
+    res.render('alunos', { 
+        alunos,
+        tituloPagina: '(Pendentes)'
+    });
 };
