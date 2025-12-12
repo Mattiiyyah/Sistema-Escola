@@ -25,7 +25,8 @@ route.post('/alunos/register/confirm', loginRequired, alunosController.confirm);
 route.get('/alunos/register/:id', loginRequired, alunosController.editIndex);
 route.post('/alunos/edit/:id', loginRequired, alunosController.edit);
 route.get('/alunos/delete/:id', loginRequired, alunosController.delete);
-
+route.get('/alunos/pagos', loginRequired, alunosController.indexPago);
+route.get('/alunos/pendentes', loginRequired, alunosController.indexPendente);
 
 //rotas para sair da página
 route.get('/login/exist', loginController.exist);
