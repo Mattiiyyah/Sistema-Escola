@@ -7,7 +7,7 @@
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4">
                     <div>
                         <h2 class="fw-bold text-dark mb-1">
-                            <i class="bi bi-people-fill text-primary me-2"></i>Gerenciar Alunos
+                            <i class="bi bi-people-fill text-primary me-2"></i>Gerenciar Alunos <%= tituloPagina %>
                         </h2>
                         <p class="text-secondary m-0">Visualize os alunos, responsáveis e status financeiro.</p>
                     </div>
@@ -15,6 +15,20 @@
                     <a href="/alunos/register" class="btn btn-success rounded-pill px-4 fw-bold shadow-sm mt-3 mt-md-0">
                         <i class="bi bi-plus-lg me-2"></i>Nova Matrícula
                     </a>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="btn-group shadow-sm rounded-pill" role="group">
+                            <a href="/alunos/index" class="btn btn-outline-secondary fw-bold">Todos</a>
+                            <a href="/alunos/pagos" class="btn btn-outline-success fw-bold">
+                                <i class="bi bi-check-circle-fill me-1"></i>Pagos
+                            </a>
+                            <a href="/alunos/pendentes" class="btn btn-outline-danger fw-bold">
+                                <i class="bi bi-clock-fill me-1"></i>Pendentes
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card border-0 shadow rounded-4 overflow-hidden">
@@ -38,36 +52,27 @@
                                         <tr>
                                             <td class="ps-4">
                                                 <div class="d-flex align-items-center">
-                                                    
-                                                    <%
-                                                        const cores = ['bg-primary', 'bg-success', 'bg-danger', 'bg-info', 'bg-warning'];
-                                                        let somaLetras = 0;
-                                                        
-                                                        if (aluno.nome) {
-                                                            for (let i = 0; i < aluno.nome.length; i++) {
-                                                                somaLetras += aluno.nome.charCodeAt(i);
-                                                            }
-                                                        }
 
-                                                        let indiceCor = somaLetras % cores.length;
-                                                        let corEscolhida = cores[indiceCor];
+                                                    <% const cores=['bg-primary', 'bg-success' , 'bg-danger' , 'bg-info'
+                                                        , 'bg-warning' ]; let somaLetras=0; if (aluno.nome) { for (let
+                                                        i=0; i < aluno.nome.length; i++) { somaLetras
+                                                        +=aluno.nome.charCodeAt(i); } } let indiceCor=somaLetras %
+                                                        cores.length; let corEscolhida=cores[indiceCor]; let
+                                                        corTexto=(corEscolhida==='bg-warning' ) ? 'text-dark'
+                                                        : 'text-white' ; %>
 
-                                                        let corTexto = (corEscolhida === 'bg-warning') ? 'text-dark' : 'text-white';
-
-                                                    %>
-
-                                                    <div class="<%= corEscolhida %> <%= corTexto %> rounded-circle d-flex align-items-center justify-content-center me-3 fw-bold shadow-sm"
-                                                        style="width: 40px; height: 40px; min-width: 40px;">
-                                                        <%= aluno.nome ? aluno.nome[0].toUpperCase() : '?' %>
-                                                    </div>
-                                                    <div>
-                                                        <span class="fw-bold text-dark">
-                                                            <%= aluno.nome %>
-                                                        </span>
-                                                        <div class="small text-muted">
-                                                            <%= aluno.turma %>
+                                                        <div class="<%= corEscolhida %> <%= corTexto %> rounded-circle d-flex align-items-center justify-content-center me-3 fw-bold shadow-sm"
+                                                            style="width: 40px; height: 40px; min-width: 40px;">
+                                                            <%= aluno.nome ? aluno.nome[0].toUpperCase() : '?' %>
                                                         </div>
-                                                    </div>
+                                                        <div>
+                                                            <span class="fw-bold text-dark">
+                                                                <%= aluno.nome %>
+                                                            </span>
+                                                            <div class="small text-muted">
+                                                                <%= aluno.turma %>
+                                                            </div>
+                                                        </div>
                                                 </div>
                                             </td>
 
@@ -91,21 +96,22 @@
                                             </td>
 
                                             <td class="fw-bold text-dark">
-                                                R$ <%= parseFloat(aluno.valor).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %>
+                                                R$ <%= parseFloat(aluno.valor).toLocaleString('pt-BR', {
+                                                    minimumFractionDigits: 2, maximumFractionDigits: 2 }) %>
                                             </td>
 
                                             <td class="text-center">
-                                                <% if(aluno.pago === true) { %>
+                                                <% if(aluno.pago===true) { %>
                                                     <span
                                                         class="badge bg-success-subtle text-success-emphasis border border-success-subtle rounded-pill px-3 py-2">
                                                         <i class="bi bi-check-circle-fill me-1"></i> Pago
                                                     </span>
-                                                <% } else { %>
+                                                    <% } else { %>
                                                         <span
                                                             class="badge bg-danger-subtle text-danger-emphasis border border-danger-subtle rounded-pill px-3 py-2">
                                                             <i class="bi bi-clock-fill me-1"></i> Pendente
                                                         </span>
-                                                <% } %>
+                                                        <% } %>
                                             </td>
 
                                             <td class="pe-4 text-end">
@@ -127,6 +133,14 @@
                                 <p class="text-muted lead mb-0">Não existem alunos matriculados.</p>
                             </div>
                             <% } %>
+
+                                <div class="card-footer bg-white border-0 py-3">
+                                    <div class="text-muted small text-center">
+                                        Total de <strong>
+                                            <%= alunos.length %>
+                                        </strong> registro<%= alunos.length !==1 ? 's' : '' %> encontrado<%=alunos.length !==1 ? 's' : '' %>
+                                    </div>
+                                </div>
 
                 </div>
 
