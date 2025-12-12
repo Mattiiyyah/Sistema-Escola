@@ -1,0 +1,44 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+} 
+
+/*--- cabecalho -- */
+nav {
+   background-color: rgba(119, 201, 219, 0.6);
+   margin: 3vh 5vh;
+   border-radius: 5em;
+}
+/*--- fim do cabecalho ---*/
+
+/*--- efeitos turmas ---*/
+.hover-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer; 
+}
+
+.hover-effect:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important; 
+    background-color: #ffffff; 
+}
+
+/* Efeito de Hover para os Pilares */
+.hover-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-effect:hover {
+    cursor: pointer;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+    background-color: #fff; 
+}
+
+/* Efeito nos links do rodapé */
+.hover-icon:hover {
+        color: #ffc107 !important; 
+        transform: scale(1.2); 
+        transition: all 0.3s ease;
+}
