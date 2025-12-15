@@ -21,9 +21,9 @@
                         <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
                             <div class="card-body p-5">
                                 <% if(aluno._id) {%>
-                                    <form action="/alunos/edit/<%= aluno._id%>" method="POST">
+                                    <form class="form-aluno" action="/alunos/edit/<%= aluno._id%>" method="POST">
                                         <% } else { %>
-                                            <form action="/alunos/register/confirm" method="POST">
+                                            <form class="form-aluno" action="/alunos/register/confirm" method="POST">
                                                 <% } %>
 
                                                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
@@ -39,6 +39,7 @@
                                                                     id="nomeAluno" name="nome" value="<%= aluno.nome %>"
                                                                     placeholder="Nome da Criança">
                                                                 <label for="nomeAluno">Nome Completo do Aluno</label>
+                                                                <div class="invalid-feedback"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
@@ -62,6 +63,7 @@
                                                                         %>>Pré-Escola</option>
                                                                 </select>
                                                                 <label for="turma">Turma</label>
+                                                                <div class="invalid-feedback"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -78,6 +80,7 @@
                                                             value="<%= aluno.nomeResponsavel %>"
                                                             placeholder="Nome do Pai/Mãe">
                                                         <label for="nomeResponsavel">Nome do Responsável</label>
+                                                        <div class="invalid-feedback"></div>
                                                     </div>
 
                                                     <div class="row g-3 mb-4">
@@ -88,6 +91,7 @@
                                                                     value="<%= aluno.emailResponsavel %>"
                                                                     placeholder="email@exemplo.com">
                                                                 <label for="emailResponsavel">E-mail de Contato</label>
+                                                                <div class="invalid-feedback"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -98,6 +102,7 @@
                                                                     placeholder="(11) 99999-9999">
                                                                 <label for="telefoneResponsavel">Telefone /
                                                                     WhatsApp</label>
+                                                                <div class="invalid-feedback"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -116,12 +121,15 @@
                                                                     name="valor" value="<%= aluno.valor %>"
                                                                     placeholder="550.00">
                                                                 <label for="valor">Valor da Mensalidade (R$)</label>
+                                                                <div class="invalid-feedback"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-floating">
                                                                 <select class="form-select rounded-4" id="pago"
                                                                     name="pago">
+                                                                    <option value="" selected disabled>Selecione...
+                                                                    </option>
                                                                     <option value="false" <%=(locals.aluno &&
                                                                         aluno.pago===false) ? 'selected' : '' %>
                                                                         >Pendente (Ainda não pagou)</option>
@@ -131,6 +139,7 @@
                                                                         (Matrícula confirmada)</option>
                                                                 </select>
                                                                 <label for="pago">Status Inicial</label>
+                                                                <div class="invalid-feedback"></div>
                                                             </div>
                                                         </div>
                                                     </div>
