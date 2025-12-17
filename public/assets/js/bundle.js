@@ -253,6 +253,8 @@ var Login = /*#__PURE__*/function () {
       if (elementoClicado.id === 'toggleLoginPassword') inputId = 'loginPassword';
       if (elementoClicado.id === 'toggleRegisterPassword') inputId = 'registerPassword';
       if (elementoClicado.id === 'toggleConfirmPassword') inputId = 'confirmpassword';
+      if (elementoClicado.id === 'toggleNewPassword') inputId = 'newPassword';
+      if (elementoClicado.id === 'toggleConfirmNewPassword') inputId = 'confirmNewPassword';
       if (inputId) {
         var input = document.querySelector("#".concat(inputId));
         if (input.type === 'password') {

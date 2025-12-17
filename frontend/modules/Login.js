@@ -41,6 +41,8 @@ export default class Login {
         if (elementoClicado.id === 'toggleLoginPassword') inputId = 'loginPassword';
         if (elementoClicado.id === 'toggleRegisterPassword') inputId = 'registerPassword';
         if (elementoClicado.id === 'toggleConfirmPassword') inputId = 'confirmpassword';
+        if (elementoClicado.id === 'toggleNewPassword') inputId = 'newPassword';
+        if (elementoClicado.id === 'toggleConfirmNewPassword') inputId = 'confirmNewPassword';
 
         if (inputId) {
             const input = document.querySelector(`#${inputId}`);
