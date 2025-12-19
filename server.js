@@ -87,6 +87,10 @@ app.use(csrfMiddleware);
 // Rotas da aplicação
 app.use(routes);
 
+app.use((req, res, next) => {
+    res.status(404).render('404');
+});
+
 // Inicialização do Servidor (só inicia depois de conectar no BD)
 app.on('pronto', () => {
   app.listen(3000, () => {
