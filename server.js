@@ -26,28 +26,27 @@ const csrf = require('csurf');
 // Importação dos seus Middlewares (que você ainda vai criar/ajustar)
 const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middlewares.js');
 
+//atualização de termos
 app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
-        // Mantém as configurações padrão de segurança
+        // Pega as configurações padrão...
         ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-        
-        // Permite scripts do site e do CDN (Bootstrap)
+
+        // Suas configurações personalizadas
         "script-src": ["'self'", "https://cdn.jsdelivr.net"],
-        
-        // Permite estilos (CSS) do site e do CDN
         "style-src": ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
-        
-        // Permite conexões (como os ficheiros .map) ao CDN
         "connect-src": ["'self'", "https://cdn.jsdelivr.net"],
-        
-        // Opcional: Permite imagens do CDN, caso o Bootstrap precise
-        "img-src": ["'self'", "data:", "https://cdn.jsdelivr.net"] 
+        "img-src": ["'self'", "data:", "blob:", "https://cdn.jsdelivr.net"],
+
+        // A CORREÇÃO MÁGICA: Desativa a conversão forçada para HTTPS
+        "upgrade-insecure-requests": null,
       },
     },
   })
 );
+
 
 
 // Tratamento de dados de formulário (body-parser)
