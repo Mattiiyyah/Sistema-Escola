@@ -1,4 +1,4 @@
-# 🌻 Comeia Girassol - Sistema de Gestão Escolar
+# 🌻 Colmeia Girassol - Sistema de Gestão Escolar
 
 > "De um espaço de brincar para uma escola de aprender."
 
