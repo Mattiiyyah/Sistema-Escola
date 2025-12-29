@@ -9,7 +9,7 @@
 
 Este projeto nasceu de uma motivação muito especial e de um problema real.
 
-Minha mãe administra um espaço de recreação infantil que, em 2026, se transformará oficialmente na **Escola Comeia Girassol**. Observando a rotina dela, notei que um dos maiores gargalos era a gestão financeira: todo o controle de pagamentos e mensalidades dos alunos era feito manualmente em **papel**, o que dificultava a visualização de quem já tinha pago ou quem estava pendente.
+Minha mãe administra um espaço de recreação infantil que, em 2026, se transformará oficialmente na **Escola Colmeia Girassol**. Observando a rotina dela, notei que um dos maiores gargalos era a gestão financeira: todo o controle de pagamentos e mensalidades dos alunos era feito manualmente em **papel**, o que dificultava a visualização de quem já tinha pago ou quem estava pendente.
 
 Decidi então unir o meu objetivo de consolidar meus conhecimentos em **Desenvolvimento Web** com a vontade de ajudar o negócio da família. Assim nasceu este sistema: uma plataforma para gerenciar matrículas e controlar o fluxo de pagamentos de forma simples e digital.
 
